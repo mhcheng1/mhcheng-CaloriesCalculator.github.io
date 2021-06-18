@@ -1,5 +1,8 @@
 # Calories Calculator
 
-A calories calculator implemented using Javascript. User can select food items and add them to a grocery cart. At the end the cart is displayed to the user and there is the option to calculate the total calories within the cart. <br>
-<br>
-<image src= "https://media.giphy.com/media/O0Zs64VNsebgl0kArU/giphy.gif">
+* A HTML/CSS/Javascript website that allows user to select existing food on the website or add their own.
+* Keeps track of item in the cart and calculate total calories in the end.
+* Link: https://mhcheng1.github.io/mhcheng-CaloriesCalculator.github.io/ <br><br>
+
+## Demo <br>
+<img src="https://media.giphy.com/media/YfeleIrCaTgJdzHLN2/giphy.gif" height="350px" width="500px">
