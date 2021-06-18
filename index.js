@@ -32,7 +32,6 @@ function ready() {
 }
 
 function purchaseClicked (event) {
-    alert('Thank you for using')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -51,12 +50,12 @@ function addItemToCart (event) {
     var item = event.target.parentElement.parentElement
     var title = item.getElementsByClassName('shop-item-title')[0].innerText
     var image = item.getElementsByClassName('shop-item-image')[0].src
-    var price = item.getElementsByClassName('shop-item-price')[0].innerText
-    addItemToCartRow(title, image, price)
+    var cal = item.getElementsByClassName('shop-item-cal')[0].innerText
+    addItemToCartRow(title, image, cal)
     updateCartTotal()
 }
 
-function addItemToCartRow (title, image, price) {
+function addItemToCartRow (title, image, cal) {
     var cartRow = document.createElement('div')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemTitles = cartItems.getElementsByClassName('cart-item-title')
@@ -74,7 +73,7 @@ function addItemToCartRow (title, image, price) {
             <img class="cart-item-image" src="${image}" width="100" height="100">
             <span class="cart-item-title">${title}</span>
         </div>
-        <span class="cart-price cart-column">${price}</span>
+        <span class="cart-cal cart-column">${cal}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
@@ -102,13 +101,22 @@ function updateCartTotal() {
     var total = 0
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var calElement = cartRow.getElementsByClassName('cart-cal')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
 
-        var price = parseFloat(priceElement.innerText.replace('', ''))
+        var cal = parseFloat(calElement.innerText.replace('', ''))
         var quantity = quantityElement.value
-        total += price * quantity
+        total += cal * quantity
     }
     total = Math.round (total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = total + "cal"
+    document.getElementsByClassName('cart-total-cal')[0].innerText = total + "cal"
+}
+
+function formFunction() {
+    var fname = document.myForm.fname.value
+    var calories = document.myForm.cal.value + " Calories"
+    var image = "/Images/sampleFood.jpeg"
+
+    addItemToCartRow(fname, image, calories)
+    console.log(document.myForm.fname.value)
 }

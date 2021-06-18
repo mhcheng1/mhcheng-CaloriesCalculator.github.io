@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
+        .flexCol {
+        box-sizing: border-box;
+        padding: 10px;
+        background: #ffe2e0;
+        }
+    </style>
     <head>
         <title>Food Calculator</title>
         <meta name="description" content="This is the description">
@@ -19,25 +30,27 @@
                     <li><a href="about.html">ABOUT</a></li>
                 </ul>
             </nav>
-            <h1 class="band-name band-name-large">Calories Calculator</h1>
+            <h1 class="website-name website-name-large">Calories Calculator</h1>
         </header>
         <section class="container content-section">
             <h2 class="section-header">Ingredients</h2>
             <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">Raw Egg</span>
-                    <img class="shop-item-image" src="Images/egg.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">14 Calories</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                <div class="flex-container">
+                    <div class="shop-item">
+                        <span class="shop-item-title">Raw Egg</span>
+                        <img class="shop-item-image" src="Images/egg.jpg">
+                        <div class="shop-item-details">
+                            <span class="shop-item-cal">14 Calories</span>
+                            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                        </div>
                     </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">Dry Cured Ham</span>
-                    <img class="shop-item-image" src="Images/ham.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">46 Calories</span>
-                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    <div class="shop-item">
+                        <span class="shop-item-title">Dry Cured Ham</span>
+                        <img class="shop-item-image" src="Images/ham.jpg">
+                        <div class="shop-item-details">
+                            <span class="shop-item-cal">46 Calories</span>
+                            <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,51 +58,65 @@
         <section class="container content-section">
             <h2 class="section-header">Sandwich</h2>
             <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">Ham and Egg Sandwich</span>
-                    <img class="shop-item-image" src="Images/sandwich.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">350 Calories</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                <div class="flex-container">
+                    <div class="shop-item">
+                        <span class="shop-item-title">Ham and Egg Sandwich</span>
+                        <img class="shop-item-image" src="Images/sandwich.jpg" width="360px" height="300px">
+                        <div class="shop-item-details">
+                            <span class="shop-item-cal">350 Calories</span>
+                            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                        </div>
                     </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">Burger</span>
-                    <img class="shop-item-image" src="Images/burger.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">710 Calories</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    <div class="shop-item">
+                        <span class="shop-item-title">Burger</span>
+                        <img class="shop-item-image" src="Images/burger.jpg">
+                        <div class="shop-item-details">
+                            <span class="shop-item-cal">710 Calories</span>
+                            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="container content-section">
+            <h2 class="section-header">Add Your Own Food</h2>
+            <form name="myForm" onsubmit="formFunction();return false">
+                <label for="fname" class="shop-item-title">Food:</label>
+                <input type="text" id="fname" name="fname" value="Apple" style="height:30px; width:300px; font-size: 20px;
+                    font-weight:bold;"><br><br>
+                <label for="cal" class="shop-item-title">Calories:</label>
+                <input type="text" id="cal" name="cal" value="50" style="height:30px; width:300px; height:30px; width:300px; font-size: 20px;
+                     font-weight:bold;"><br><br>
+                <input type="submit" value="SUBMIT" class="btn btn-primary shop-item-button">
+            </form> 
+        </section>
+        <section class="container content-section">
             <h2 class="section-header">CART</h2>
             <div class="cart-row">
                 <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">CALORIES</span>
+                <span class="cart-cal cart-header cart-column">CALORIES</span>
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
             <div class="cart-items">
             </div>
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">0</span>
+                <span class="cart-total-cal">0</span>
             </div>
             <button class="btn btn-primary btn-purchase" type="button">Clear</button>
         </section>
         <footer class="main-footer">
             <div class="container main-footer-container">
-                <h3 class="band-name">Calories Calculator</h3>
+                <h3 class="website-name">Useful Utilities</h3>
                 <ul class="nav footer-nav">
                     <li>
                         <a href="https://www.youtube.com" target="_blank">
-                            <img src="Images/YouTube Logo.png">
+                            <img src="https://openpress.usask.ca/app/uploads/sites/89/2020/06/nutrition-facts.png">
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com" target="_blank">
-                            <img src="Images/Facebook Logo.png">
+                        <a href="https://www.calculator.net/calorie-calculator.html" target="_blank">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.0D4484MfIolBC9XYyWjwcgHaHa%26pid%3DApi&f=1">
                         </a>
                     </li>
                 </ul>
