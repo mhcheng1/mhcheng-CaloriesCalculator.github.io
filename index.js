@@ -115,7 +115,7 @@ function updateCartTotal() {
 function formFunction() {
     var fname = document.myForm.fname.value
     var calories = document.myForm.cal.value + " Calories"
-    var image = "/Images/sampleFood.jpeg"
+    var image = "Images/sampleFood.jpeg"
 
     addItemToCartRow(fname, image, calories)
     console.log(document.myForm.fname.value)
